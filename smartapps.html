@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Apps</title>
+<meta name="description" content="Smart Apps builds focused study apps that work offline, keep your data on your device, and are paid for once.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1f2937; --muted: #5b6472;
+    --accent: #1a73e8; --rule: #e5e7eb; --card: #f7f9fc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16202e; --fg: #e6eaf0; --muted: #a3adbb;
+      --accent: #6ba4f0; --rule: #2b3849; --card: #1e2a3a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+  .brand { font-size: 2rem; font-weight: 800; letter-spacing: -.5px; margin: 0 0 6px; }
+  .brand span { color: var(--accent); }
+  .tag { color: var(--muted); margin: 0 0 36px; }
+  h2 { font-size: 1.1rem; margin: 32px 0 10px; }
+  h3 { font-size: 1.05rem; margin: 0 0 4px; }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
+  a { color: var(--accent); }
+  .app {
+    background: var(--card); border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px; padding: 18px 20px; margin: 16px 0 8px;
+  }
+  .app p { margin: 0; color: var(--muted); }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .app .links { margin-top: 16px; }
+  .links a {
+    display: inline-block; text-decoration: none;
+    background: var(--bg); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 10px 16px; font-weight: 600;
+  }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 44px 0 20px; }
+  footer { color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="brand"><span>SMART</span> APPS</p>
+  <p class="tag">An independent developer of focused study apps — built to work
+  offline, to keep your data on your own device, and to be paid for once.</p>
+
+  <h2>Our apps</h2>
+
+  <div class="app">
+    <h3>Smart CDL</h3>
+    <p>Practice tests, study cards, and full-length exams for the commercial
+    driver license knowledge tests. Written from each state's own official CDL
+    manual, covering all 50 states, every CDL class, and every endorsement.</p>
+    <div class="links">
+      <a href="index.html">Website</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="sources.html">Official Sources</a>
+      <!-- Add once the listing is public:
+      <a href="https://play.google.com/store/apps/details?id=com.smartcdl.app">Google Play</a>
+      -->
+    </div>
+  </div>
+
+  <h2>How we build</h2>
+  <ul>
+    <li><strong>No accounts.</strong> Nothing to sign up for and nothing to sign
+    in to.</li>
+    <li><strong>No ads, no tracking.</strong> Our apps carry no advertising, no
+    analytics, and no attribution or crash-reporting SDKs.</li>
+    <li><strong>Your data stays on your device.</strong> What you enter and the
+    progress you make is stored in your device's private app storage. We run no
+    servers that receive it.</li>
+    <li><strong>Works offline.</strong> Downloading reference material aside,
+    everything runs with no connection.</li>
+    <li><strong>Pay once.</strong> One-time purchases, never subscriptions, and
+    they restore free of charge on any device signed in to the same store
+    account.</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Support, questions, and bug reports:
+  <a href="mailto:smart.apps.ca@gmail.com">smart.apps.ca@gmail.com</a>.</p>
+
+  <div class="links">
+    <a href="mailto:smart.apps.ca@gmail.com">Email us</a>
+    <a href="index.html">Smart CDL</a>
+  </div>
+
+  <hr>
+  <footer>
+    <p>Smart Apps is an independent developer. Our study apps are not affiliated
+    with, endorsed by, or a substitute for any government agency or licensing
+    authority. Always verify current requirements with the agency that issues
+    your license.</p>
+    <p>Contact: <a href="mailto:smart.apps.ca@gmail.com">smart.apps.ca@gmail.com</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
