@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SmartApps Studio">
+  <defs>
+    <linearGradient id="smartAppsMark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#9333ea" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#smartAppsMark)" />
+  <!-- The S is a path, not text, so the mark never depends on a font being present.
+       Scaled about the centre to fill the square now that the underscore is gone. -->
+  <g transform="translate(32 32) scale(1.4) translate(-32 -32)">
+    <path
+      d="M39.5 21.5c-2.2-2.2-5.1-3.3-8.3-3.3-5.6 0-9.6 3.2-9.6 7.8 0 4.2 2.9 6.4 8.2 7.6l2.2 .5c3 .7 4.2 1.6 4.2 3.2 0 2-1.9 3.3-4.9 3.3-2.8 0-5.2-1.1-7-3l-3.6 4c2.5 2.7 6.2 4.2 10.4 4.2 6 0 10.2-3.2 10.2-8 0-4.3-2.8-6.5-8.4-7.8l-2.2-.5c-2.8-.6-4-1.5-4-3 0-1.9 1.8-3.1 4.5-3.1 2.4 0 4.5 .9 6.1 2.5z"
+      fill="#ffffff"
+    />
+  </g>
+</svg>

@@ -4,37 +4,151 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Official Sources — Smart CDL</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#fff; --fg:#1f2937; --muted:#5b6472; --accent:#1a73e8; --rule:#e5e7eb; --card:#f7f9fc; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#16202e; --fg:#e6eaf0; --muted:#a3adbb; --accent:#6ba4f0; --rule:#2b3849; --card:#1e2a3a; }
+  :root{
+    --page:#000000; --container:#0E1526; --surface:#172238;
+    --border:#243352; --border-hover:#3A4F7A; --card-border:rgba(26,115,232,.55);
+    --heading:#E5E7EB; --body:#9CA3AF; --accent:#7DA3FF; --accent-hover:#A9C4FF;
+    --header:#19191c; --rule:#18181b; --faint:#71717a;
   }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg);
-    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
-  .wrap { max-width:760px; margin:0 auto; padding:40px 20px 80px; }
-  h1 { font-size:1.8rem; margin:0 0 6px; }
-  .date { color:var(--muted); font-size:.92rem; margin:0 0 24px; }
-  .notice { background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--accent);
-    border-radius:10px; padding:16px 18px; margin:0 0 28px; }
-  .notice p { margin:0 0 10px; } .notice p:last-child { margin:0; }
-  h2 { font-size:1.1rem; margin:32px 0 10px; }
-  .tablewrap { overflow-x:auto; }
-  table { border-collapse:collapse; width:100%; font-size:.94rem; }
-  th,td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--rule); vertical-align:top; }
-  th { color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.07em; }
-  td:first-child { white-space:nowrap; }
-  a { color:var(--accent); word-break:break-word; }
-  em { color:var(--muted); font-style:normal; font-size:.85em; }
-  footer { margin-top:40px; padding-top:20px; border-top:1px solid var(--rule);
-    color:var(--muted); font-size:.88rem; }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--page); color:var(--body);
+    font:400 14px/1.7 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;
+  }
+
+  /* Header - matches smartapps-studio.com. Scoped so a page can keep using
+     its own .brand / .links classes without inheriting the logo layout. */
+  .site-header{
+    position:sticky; top:0; z-index:50; background:var(--header);
+    border-bottom:1px solid rgba(255,255,255,.10);
+  }
+  .site-header .inner{
+    max-width:1280px; margin:0 auto; padding:0 12px; height:64px;
+    display:flex; align-items:center; justify-content:space-between; gap:8px;
+  }
+  .site-header .brand{display:flex; align-items:center; gap:8px; text-decoration:none; flex-shrink:0}
+  .site-header .brand .mark{
+    width:32px; height:32px; border-radius:8px; flex-shrink:0;
+    background:linear-gradient(to bottom right,#6366f1,#9333ea,#ec4899);
+    display:flex; align-items:center; justify-content:center;
+    font:700 12px/1 "JetBrains Mono",ui-monospace,monospace; color:#fff;
+    box-shadow:0 10px 15px -3px rgba(147,51,234,.20);
+  }
+  .site-header .brand .name{font-weight:700; font-size:14px; letter-spacing:-.01em; color:#fff; white-space:nowrap}
+  .back{
+    padding:8px 12px; border-radius:6px; background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.15); color:#fff; text-decoration:none;
+    font-weight:600; font-size:12px; white-space:nowrap;
+  }
+  .back:hover{background:rgba(255,255,255,.15)}
+
+  /* All page content sits inside one container: the app's page background
+     with its two ambient corner glows, same as the tile on the studio site. */
+  .page{max-width:960px; margin:0 auto; padding:48px 24px 64px}
+  .wrap{
+    padding:40px;
+    border:1px solid var(--border); border-radius:16px;
+    background-color:var(--container);
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(125,163,255,.18), transparent 35%),
+      radial-gradient(circle at 100% 100%, rgba(79,209,197,.15), transparent 35%);
+  }
+
+  h1{margin:0; font-size:32px; line-height:1.15; font-weight:800; letter-spacing:-.02em; color:#fff}
+  .tag{margin:14px 0 0; font-size:16px; line-height:1.65; color:var(--body); max-width:34rem}
+  .date{margin:8px 0 0; font:400 12px/1.6 "JetBrains Mono",ui-monospace,monospace; color:var(--accent)}
+
+  /* Callouts, the app entry and the table are cards on the container. */
+  .summary,.notice,.app{
+    margin:32px 0 0; padding:20px 22px; border-radius:14px;
+    background:var(--surface); border:1px solid var(--card-border); color:var(--heading);
+  }
+  .summary p,.notice p{margin:0; color:var(--heading)}
+  .notice p + p{margin-top:14px}
+  .app h3{margin:0; font-size:18px; font-weight:700; letter-spacing:-.01em; color:#fff}
+  .app p{margin:10px 0 0; color:var(--body)}
+  .app .links{margin-top:18px}
+
+  h2{margin:36px 0 12px; font-size:18px; line-height:1.3; font-weight:700; letter-spacing:-.01em; color:var(--heading)}
+  h2 + ul{margin-top:12px}
+  p{margin:16px 0 0}
+  ul{margin:16px 0 0; padding-left:20px}
+  li{margin:8px 0}
+  li::marker{color:var(--border-hover)}
+  strong{color:var(--heading); font-weight:600}
+  a{color:var(--accent); text-decoration:underline; text-underline-offset:4px}
+  a:hover{color:var(--accent-hover)}
+
+  /* Button rows. */
+  .links{display:flex; flex-wrap:wrap; gap:10px; margin-top:32px}
+  .links a{
+    display:inline-block; text-decoration:none; padding:10px 16px; border-radius:10px;
+    background:var(--surface); border:1px solid var(--card-border);
+    color:var(--heading); font-weight:600; font-size:13px;
+  }
+  .app .links a{background:rgba(0,0,0,.25)}
+  .links a:hover{border-color:var(--accent); color:#fff}
+
+  /* The table is the one element allowed to scroll sideways on a phone. */
+  .tablewrap{
+    margin-top:24px; overflow-x:auto;
+    background:var(--surface); border:1px solid var(--card-border); border-radius:14px;
+  }
+  table{border-collapse:collapse; width:100%; font-size:14px}
+  th{
+    text-align:left; padding:12px 16px; color:var(--accent);
+    font:400 11px/1.4 "JetBrains Mono",ui-monospace,monospace;
+    text-transform:uppercase; letter-spacing:.08em;
+    border-bottom:1px solid var(--border);
+  }
+  td{padding:12px 16px; border-top:1px solid var(--border); vertical-align:top}
+  tbody tr:first-child td{border-top:0}
+  td:first-child{color:var(--heading); white-space:nowrap}
+  td a{font:400 12px/1.5 "JetBrains Mono",ui-monospace,monospace; word-break:break-all}
+
+  hr{border:0; border-top:1px solid var(--border); margin:40px 0 0}
+  .wrap > footer{margin-top:20px; font-size:12px; color:var(--faint)}
+  .wrap > footer p{margin:0}
+  .wrap > footer p + p{margin-top:10px}
+
+  .site-footer{border-top:1px solid var(--rule); padding:48px 24px}
+  .site-footer .inner{
+    max-width:960px; margin:0 auto; display:flex; flex-wrap:wrap; gap:16px;
+    align-items:center; justify-content:space-between;
+    font:400 12px/1.6 "JetBrains Mono",ui-monospace,monospace; color:var(--faint);
+  }
+  .site-footer a{color:var(--faint); text-decoration:none}
+  .site-footer a:hover{color:#fff}
+
+  @media (max-width:640px){
+    .page{padding:32px 16px 48px}
+    .wrap{padding:24px 20px}
+    h1{font-size:26px}
+  }
 </style>
 </head>
 <body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="https://smartapps-studio.com/">
+      <span class="mark">S_</span>
+      <span class="name">SmartApps Studio</span>
+    </a>
+    <a class="back" href="https://smartapps-studio.com/">&larr; Back</a>
+  </div>
+</header>
+<main class="page">
 <div class="wrap">
 
 <h1>Official sources</h1>
-<p class="date">Smart CDL &middot; last verified 1 August 2026</p>
+<p class="date">Smart CDL &middot; links checked regularly</p>
 
 <div class="notice">
   <p><strong>Smart CDL is not a government app and does not represent any
@@ -120,10 +234,17 @@ what you read in the app is the file the agency published.</p>
   manuals. Where a manual and current regulation differ, the app follows the
   manual, because that is what the state tests against.</p>
   <p>A broken or outdated link here? Email
-  <a href="mailto:smart.apps.ca@gmail.com">smart.apps.ca@gmail.com</a>.</p>
-  <p><a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy policy</a></p>
+  <a href="mailto:SmartApps%20Studio%20Support%20%3Csmart.apps.ca@gmail.com%3E">smart.apps.ca@gmail.com</a>.</p>
+  <p><a href="https://smartapps-studio.com/">Home</a> &middot; <a href="privacy.html">Privacy policy</a></p>
 </footer>
 
 </div>
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    <span>&copy; 2026 SmartApps Studio. All rights reserved.</span>
+    <span><a href="index.html">Smart CDL</a> &nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp; <a href="sources.html">Official Sources</a></span>
+  </div>
+</footer>
 </body>
 </html>
