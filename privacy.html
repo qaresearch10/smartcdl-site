@@ -150,10 +150,13 @@
 <h1>Privacy Policy</h1>
 <p class="date">Smart CDL · Effective 1 August 2026</p>
 
+<!-- Release draft: publish with the configured content-update app release and
+     set the effective date above to that release's actual date. -->
 <div class="summary">
-  <p><strong>In short:</strong> Smart CDL has no servers and no accounts. Everything
-  you enter — your name, your state, your study progress — is stored only on your
-  own device. We do not collect it, we cannot see it, and it is never sent to us.</p>
+  <p>Smart CDL has no accounts. Your name, answers, saved quiz and exam reviews,
+  and study progress stay on your device. Content updates and optional
+  notifications use Google cloud services and exchange the technical information
+  described below.</p>
 </div>
 
 <h2>1. Who this covers</h2>
@@ -161,75 +164,100 @@
 SmartApps Studio. Questions: <a href="mailto:SmartApps%20Studio%20Support%20%3Csmart.apps.ca@gmail.com%3E">smart.apps.ca@gmail.com</a>.</p>
 
 <h2>2. Information stored on your device</h2>
-<p>The app saves the following locally, in your device's private app storage, so it
-can remember where you left off:</p>
+<p>The app saves the following in your device's private app storage:</p>
 <ul>
   <li>The name you enter during setup</li>
   <li>Your selected state, CDL class, and endorsement selections</li>
-  <li>Study progress: completed topics, quiz and exam scores, and your last position in a topic</li>
-  <li>Which in-app purchases you own</li>
-  <li>App settings such as theme and auto-advance</li>
+  <li>Study progress, answers, saved reviews, scores, and paused quizzes or exams</li>
+  <li>Which in-app purchases you own and your app settings</li>
+  <li>Downloaded study content, content-version information, and notification preferences</li>
 </ul>
-<p>This information never leaves your device. It is not transmitted to us or to any
-third party. We operate no server that receives it, and we have no way to access it.</p>
+<p>Your name, answers, reviews, scores, progress, CDL class, and endorsements are
+not uploaded to our content service. The selected state is sent to request the
+correct state content and, if enabled, to subscribe to that state's update
+notifications. Study databases and saved question records remain encrypted on
+your device; other preferences are stored in private app storage.</p>
 
-<h2>3. Information we do not collect</h2>
-<p>The app contains no analytics, no advertising, no tracking or attribution SDKs,
-and no crash-reporting service. We do not build profiles, and there is nothing to
-sell or share because nothing is gathered in the first place.</p>
+<h2>3. How we use technical information</h2>
+<p>The app contains no analytics, advertising, attribution, or crash-reporting SDK.
+We do not sell personal information, build advertising profiles, or use content
+requests to track study activity. Google Cloud and Firebase process the technical
+information needed to deliver content, protect decryption-key access, and send
+notifications. Service request logs may contain IP addresses, requested URLs,
+timestamps, response status, and other standard network details.</p>
 
 <h2>4. When the app connects to the internet</h2>
-<p>The app works offline. It makes network requests in only three situations, none
-of which send us your information:</p>
+<p>Bundled and previously downloaded study content works offline. The app connects
+for these features:</p>
 <ul>
-  <li><strong>Downloading a state CDL handbook.</strong> When you choose to download
-  a handbook, your device requests the PDF directly from that state's official
-  government website (for example <code>dmv.ny.gov</code>). As with visiting any
-  website, that agency's servers can see your IP address and standard request
-  details. Their handling of that information is governed by their own privacy
-  policies, not this one.</li>
-
-  <li><strong>Loading fonts.</strong> The app uses the Lato typeface via Google
-  Fonts, which may be fetched from Google's servers the first time you run the app
-  and then cached on your device. This exposes your IP address to Google. See
-  Google's <a href="https://policies.google.com/privacy">privacy policy</a>.</li>
-
-  <li><strong>Purchases.</strong> In-app purchases are processed entirely by Google
-  Play. The app only asks Google Play which products you own. We never receive, see,
-  or store your payment card, billing address, or Google account details.</li>
+  <li><strong>Content updates.</strong> At startup, when returning to the app, or
+  when you choose <em>Check for content update</em>, the app may contact our
+  Google Cloud content service. It sends your selected state, app build number,
+  and requested content release and file identifiers. Firebase App Check sends
+  app/device attestation and installation information to verify that requests
+  come from an approved app. Verified, encrypted study databases and artwork
+  download from Google Cloud Storage over HTTPS. Decryption keys are delivered
+  securely and stored using the device's secure key storage. Your study records
+  are not included in these requests.</li>
+  <li><strong>Optional notifications.</strong> If you enable content update
+  notifications in Settings and allow the system permission, Firebase Cloud
+  Messaging processes an installation/registration identifier and subscriptions
+  for general content and your selected state. On iOS, Apple Push Notification
+  service also processes a device push token. Notifications announce available
+  content; they do not contain your answers, progress, or decryption keys.
+  You can turn them off in Settings or the device's notification settings.</li>
+  <li><strong>State CDL handbooks.</strong> When you download a handbook, your
+  device requests the PDF directly from the state agency's official publishing
+  website. That publisher receives standard request information such as your IP
+  address, under its own privacy policy.</li>
+  <li><strong>Purchases.</strong> Google Play on Android and Apple's App Store on
+  iOS process purchases and restore ownership. We do not receive your payment
+  card, billing address, or store account details.</li>
+  <li><strong>Contacting support.</strong> If you choose to email support, your
+  email app sends the message you review and submit, including your email address
+  and any information you choose to include.</li>
 </ul>
+<p>Fonts are bundled in the app and do not download at runtime. Google's handling
+of information is described in its <a href="https://policies.google.com/privacy">privacy
+policy</a> and <a href="https://firebase.google.com/support/privacy">Firebase privacy
+information</a>; Apple's is described in its
+<a href="https://www.apple.com/legal/privacy/">privacy policy</a>.</p>
 
 <h2>5. Purchases</h2>
-<p>Smart CDL offers one-time purchases to unlock study content. These are not
-subscriptions and do not renew. Google Play handles payment, receipts, and refunds;
-refund requests are made through Google Play, not through us. Your purchases are
-tied to your Google account and can be restored on a new device via
+<p>Smart CDL offers one-time purchases to unlock study content. They are not
+subscriptions and do not renew. The platform store handles payment, receipts,
+and refunds. Purchases are tied to your store account and can be restored on
+another device using the same platform store account through
 <em>Settings &rarr; Restore purchases</em>.</p>
 
 <h2>6. Permissions</h2>
-<p>The app requests only what it needs to function:</p>
 <ul>
-  <li><strong>Internet access</strong> — to download handbooks and communicate with Google Play</li>
-  <li><strong>Billing</strong> — to offer in-app purchases through Google Play</li>
+  <li><strong>Internet access</strong> &mdash; for content updates, notifications,
+  handbook downloads, and store services</li>
+  <li><strong>Billing</strong> &mdash; for in-app purchases on Android</li>
+  <li><strong>Notifications</strong> &mdash; requested only when you enable
+  content update notifications</li>
 </ul>
-<p>The app does not request access to your contacts, camera, microphone, photos,
-location, or files outside its own storage.</p>
+<p>The app does not request contacts, camera, microphone, photos, device location,
+or files outside its own storage.</p>
 
 <h2>7. Children</h2>
 <p>Smart CDL is a study aid for commercial driver license tests, which require
-applicants to be at least 18 years old. The app is not directed to children, but we
-do not prohibit them from using it — it contains no harmful content, no ads, and no
-social features. And because the app collects no information from anyone, it
-collects no information from children either.</p>
+applicants to be at least 18 years old. It is not directed to children.</p>
 
 <h2>8. Deleting your information</h2>
-<p>Because your information exists only on your device, you control it completely:</p>
 <ul>
-  <li><em>Settings &rarr; Reset progress</em> clears your study history</li>
-  <li>Uninstalling the app removes all stored data from your device</li>
+  <li><em>Settings &rarr; Reset progress</em> clears locally saved study history.</li>
+  <li>Turning off content notifications removes the app's topic subscriptions and
+  messaging registration when the device can reach Firebase. Offline cleanup is
+  retried after reconnection.</li>
+  <li>Removing the app clears its private app data. Device backups, secure key
+  storage, and store purchase records follow the platform's own rules.</li>
 </ul>
-<p>There is no account to close and no server-side copy for us to delete. Records of
-your purchases are held by Google Play under Google's own policies.</p>
+<p>We have no account or server copy of your study records to delete. Technical
+service logs and identifiers follow the cloud providers' retention rules. For
+questions about technical information or a message you sent to support, contact
+us at the address below.</p>
 
 <h2>9. Changes to this policy</h2>
 <p>If this policy changes materially, the effective date above will be updated and

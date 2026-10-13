@@ -1,6 +1,6 @@
 # Smart CDL — public site
 
-Landing page and legal documents for the **Smart CDL** Android app, plus the
+Landing page and legal documents for the **Smart CDL** Android and iOS app, plus the
 publisher page for **Smart Apps**, served via GitHub Pages.
 
 | Page | URL |
@@ -15,13 +15,17 @@ must stay reachable** — a broken link can get the listing flagged or removed.
 
 ## Notes for future edits
 
-- The policy describes the app as having **no backend**: nothing the user enters
-  leaves their device. If that ever changes — analytics, crash reporting, an
-  account system, a sync service — the policy and the Play Console **Data safety**
-  declaration must both be updated, and they must agree with each other.
-- The three disclosed network cases are state-government handbook downloads, the
-  `google_fonts` runtime font fetch, and Google Play purchase handling.
-- Update the effective date at the top of `privacy.html` on any material change.
+- This branch contains the privacy and marketing changes for remote content
+  delivery. Publish them with the configured app release, set the policy's actual
+  effective date, and update Google Play Data safety and Apple App Privacy.
+- Name, answers, saved reviews, and progress stay on-device. Content requests
+  disclose selected state, app build, release identifiers, attestation information,
+  and standard network metadata. Optional push uses Firebase registration and
+  state/global topic subscriptions. Keep provider/log retention disclosures in sync
+  with the deployed configuration.
+- Network features include Google Cloud/Firebase content delivery and optional
+  push, official handbook downloads, platform-store purchases, and user-submitted
+  support email. Fonts are bundled; runtime font fetching is disabled.
 - Contact address is `smart.apps.ca@gmail.com`, which must match `kSupportEmail`
   in the app.
 - `smartapps.html` is the publisher page, suitable as the developer website in
