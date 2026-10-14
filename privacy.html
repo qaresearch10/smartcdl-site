@@ -150,13 +150,15 @@
 <h1>Privacy Policy</h1>
 <p class="date">Smart CDL · Effective 1 August 2026</p>
 
-<!-- Release draft: publish with the configured content-update app release and
-     set the effective date above to that release's actual date. -->
+<!-- Release draft: publish with the configured content-update and optional
+     usage-analytics app release. Set the effective date to the actual release
+     date before publishing; this branch does not change the production policy. -->
 <div class="summary">
   <p>Smart CDL has no accounts. Your name, answers, saved quiz and exam reviews,
-  and study progress stay on your device. Content updates and optional
-  notifications use Google cloud services and exchange the technical information
-  described below.</p>
+  and detailed study progress stay on your device. Content updates and optional
+  notifications use Google cloud services. Optional usage analytics is off by
+  default; if you enable <em>Share usage data</em>, we learn which licensing states
+  and study features are used. The information exchanged is described below.</p>
 </div>
 
 <h2>1. Who this covers</h2>
@@ -170,21 +172,40 @@ SmartApps Studio. Questions: <a href="mailto:SmartApps%20Studio%20Support%20%3Cs
   <li>Your selected state, CDL class, and endorsement selections</li>
   <li>Study progress, answers, saved reviews, scores, and paused quizzes or exams</li>
   <li>Which in-app purchases you own and your app settings</li>
-  <li>Downloaded study content, content-version information, and notification preferences</li>
+  <li>Downloaded study content, content-version information, and notification and usage-sharing preferences</li>
 </ul>
 <p>Your name, answers, reviews, scores, progress, CDL class, and endorsements are
 not uploaded to our content service. The selected state is sent to request the
 correct state content and, if enabled, to subscribe to that state's update
-notifications. Study databases and saved question records remain encrypted on
-your device; other preferences are stored in private app storage.</p>
+notifications. If you enable usage sharing, the selected licensing state is also
+included in usage events. Study databases and saved question records remain
+encrypted on your device; other preferences are stored in private app storage.</p>
 
 <h2>3. How we use technical information</h2>
-<p>The app contains no analytics, advertising, attribution, or crash-reporting SDK.
-We do not sell personal information, build advertising profiles, or use content
-requests to track study activity. Google Cloud and Firebase process the technical
-information needed to deliver content, protect decryption-key access, and send
-notifications. Service request logs may contain IP addresses, requested URLs,
-timestamps, response status, and other standard network details.</p>
+<p>Google Cloud and Firebase process the technical information needed to deliver
+content, protect decryption-key access, and send notifications. Service request
+logs may contain IP addresses, requested URLs, timestamps, response status, and
+other standard network details.</p>
+<p>Usage sharing uses Firebase Analytics and Google Analytics to understand which
+licensing states users select and whether they use handbook downloads and
+reading, study cards, quizzes, and exams. It is optional and off by default.
+If enabled, the app sends the selected licensing state, feature-use events,
+download outcomes, and whether an attempt is a quiz or exam, new, resumed,
+retaken, or reviewed. These events do not contain your name, email, questions,
+answers, scores, detailed study history, encryption keys, tokens, or download
+URLs. Firebase also processes an Analytics installation identifier, app and
+device information, and automatic SDK events such as session and lifecycle
+activity. While sharing is enabled, the SDK can automatically report store
+purchases with product identifiers or names, purchase amount, quantity and
+currency. It does not receive your payment card, billing address or store account
+details. Network information can provide an approximate region; the selected
+licensing state is a separate preference and does not establish where you live.</p>
+<p>Reports use pseudonymous installation identifiers and are not fully anonymous.
+The app has no analytics account ID and does not join your activity to your
+entered name or across your devices. We do not sell personal information, run
+ads, build advertising profiles, or link usage reports to advertising identities.
+Content requests are used for delivery and security, not as a substitute for
+optional usage analytics.</p>
 
 <h2>4. When the app connects to the internet</h2>
 <p>Bundled and previously downloaded study content works offline. The app connects
@@ -206,6 +227,11 @@ for these features:</p>
   service also processes a device push token. Notifications announce available
   content; they do not contain your answers, progress, or decryption keys.
   You can turn them off in Settings or the device's notification settings.</li>
+  <li><strong>Optional usage analytics.</strong> If you enable
+  <em>Settings &rarr; Share usage data</em>, Firebase Analytics sends usage events
+  and SDK information to Google for the reports described above. You can turn
+  sharing off at any time. It is independent of content updates, purchases and
+  notification permission.</li>
   <li><strong>State CDL handbooks.</strong> When you download a handbook, your
   device requests the PDF directly from the state agency's official publishing
   website. That publisher receives standard request information such as your IP
@@ -233,7 +259,7 @@ another device using the same platform store account through
 <h2>6. Permissions</h2>
 <ul>
   <li><strong>Internet access</strong> &mdash; for content updates, notifications,
-  handbook downloads, and store services</li>
+  optional usage analytics, handbook downloads, and store services</li>
   <li><strong>Billing</strong> &mdash; for in-app purchases on Android</li>
   <li><strong>Notifications</strong> &mdash; requested only when you enable
   content update notifications</li>
@@ -251,13 +277,18 @@ applicants to be at least 18 years old. It is not directed to children.</p>
   <li>Turning off content notifications removes the app's topic subscriptions and
   messaging registration when the device can reach Firebase. Offline cleanup is
   retried after reconnection.</li>
+  <li>Turning off <em>Share usage data</em> stops new Analytics collection and
+  resets the local Analytics identifier and unsent Analytics buffers. It does
+  not delete information already received by Google. Resetting study progress
+  does not delete server-side Analytics events.</li>
   <li>Removing the app clears its private app data. Device backups, secure key
   storage, and store purchase records follow the platform's own rules.</li>
 </ul>
-<p>We have no account or server copy of your study records to delete. Technical
-service logs and identifiers follow the cloud providers' retention rules. For
-questions about technical information or a message you sent to support, contact
-us at the address below.</p>
+<p>We have no account or server copy of your saved study records to delete.
+Technical service logs, identifiers, and previously collected Analytics data
+follow the configured service retention settings and providers' retention rules.
+For questions about technical information, Analytics data, or a message you sent
+to support, contact us at the address below.</p>
 
 <h2>9. Changes to this policy</h2>
 <p>If this policy changes materially, the effective date above will be updated and
